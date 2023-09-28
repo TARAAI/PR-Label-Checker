@@ -1,5 +1,8 @@
 name: Force Labels
 description: Will check for labels attached to the PR and fail if one of the labels in the list are missing.
+branding:
+  icon: 'tag'
+  color: 'gray-dark'
 
 on:
   pull_request:
