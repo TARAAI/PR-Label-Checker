@@ -12,11 +12,13 @@ on:
 
 jobs:
   check-labels:
-    if: ${{ contains(fromJson('["bug", "documentation", "enhancement"]'), github.event.label.name) != true }}
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: Labels not added
+    - name: Labels added
+      if: ${{ contains(fromJson('["bug", "documentation", "enhancement"]'), github.event.label.name) == true }}
+      run: echo Pass
+    - name: Labels not added (bug, documentation, or enhancement)
+      if: ${{ contains(fromJson('["bug"]'), github.event.label.name) != true }}
       run: exit 1
       
