@@ -1,4 +1,5 @@
 name: Force Labels
+description: Will check for labels attached to the PR and fail if one of the labels in the list are missing.
 
 on:
   pull_request:
