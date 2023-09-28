@@ -1,4 +1,4 @@
-name: CI
+name: Force Labels
 
 on:
   pull_request:
