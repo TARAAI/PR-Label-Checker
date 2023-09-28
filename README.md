@@ -1,16 +1,23 @@
 # Force-Label
 Github Action that forces developers to add labels to their PR before it is merged.
 
+# Customize Labels
+To customize labels, simply add/remove from the list:
+```
+      if: >
+        contains(github.event.pull_request.labels.*.name, 'bug') == false && 
+        contains(github.event.pull_request.labels.*.name, 'documentation') == false && 
+        contains(github.event.pull_request.labels.*.name, 'enhancement') == false &&
+        contains(github.event.pull_request.labels.*.name, 'newlabel1') == false &&
+        contains(github.event.pull_request.labels.*.name, 'newlabel2') == false
+      run: exit 1
+```
+This will require either `bug`, `documentation`, `enhancement`, `newlabel1`, or `newlabel2` to be attached to a PR.
+
 ## Required Labels
-To have multiple required labels you can use `||`:
+To have multiple required labels on a single PR you can use `||`:
 
 ```
-jobs:
-  check-labels:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Labels not added (bug, documentation, enhancement)
       if: >
         contains(github.event.pull_request.labels.*.name, 'bug') == false ||
         contains(github.event.pull_request.labels.*.name, 'allocations') == false ||
@@ -18,8 +25,8 @@ jobs:
       run: exit 1
 ```
 
-## Layered Labels
-To require labels specific to parent labels you can use `needs`
+## Related Labels
+To require labels related to other labels you can use `needs` on a specific job.
 
 ```
 jobs:
