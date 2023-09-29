@@ -1,5 +1,5 @@
-# Force-Label
-Github Action that forces developers to add labels to their PR before it is merged.
+# PR Label Checker
+The PR Label Checker is a Github Action created by Tara AI that Checks for Labels in a Pull Request and asks Engineers/Developers to add relevant labels to their PR before before it is merged.
 
 # Customize Labels
 To customize labels, simply add/remove from the list:
