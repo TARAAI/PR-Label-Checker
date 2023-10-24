@@ -1,8 +1,8 @@
-name: Force Labels
-description: Will check for labels attached to the PR and fail if one of the labels in the list are missing.
+name: PR Label Checker
+description: This GitHub Action checks if labels are attached to a PR and fails if any of configured listed labels are not present.
 branding:
-  icon: 'tag'
-  color: 'gray-dark'
+  icon: 'check-circle'
+  color: 'green'
 
 on:
   pull_request:
